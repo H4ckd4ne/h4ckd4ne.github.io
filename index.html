@@ -42,39 +42,56 @@
       <div class="backdrop__glow backdrop__glow--b"></div>
     </div>
 
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <a class="brand" href="index.html" aria-label="H4ckd4ne, accueil">
-          <img src="assets/img/logo-mark.png" alt="" width="30" height="26" />
-          <span class="brand__text">H4ckd4ne<span>.</span></span>
-        </a>
-
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="nav"
-          aria-label="Ouvrir le menu"
-        >
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-          </svg>
-        </button>
-
-        <nav class="nav" id="nav" aria-label="Navigation principale">
-          <a href="#apropos"><span class="nav__num">01</span>À propos</a>
-          <a href="#competences"><span class="nav__num">02</span>Compétences</a>
-          <a href="#certifications"><span class="nav__num">03</span>Certifications</a>
-          <a href="#projets"><span class="nav__num">04</span>Projets</a>
-          <a href="blog/"><span class="nav__num">05</span>Écrits</a>
-          <a class="nav__cta" href="#contact">Contact</a>
-        </nav>
-      </div>
+    <header class="topbar">
+      <a class="topbar__brand" href="#accueil" aria-label="H4ckd4ne, accueil">
+        <img src="assets/img/logo-mark.png" alt="" width="28" height="25" />
+        <span class="topbar__brand-text">H4ckd4ne<span>.</span></span>
+      </a>
+      <button class="topbar__toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
     </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Index du dossier">
+      <div class="sidebar__head">
+        <p class="sidebar__kicker">Dossier n° 0X-H4CKD4NE</p>
+        <a class="sidebar__brand" href="#accueil">
+          <img src="assets/img/logo-mark.png" alt="" width="34" height="30" />
+          <span class="sidebar__brand-text">H4ckd4ne<span>.</span></span>
+        </a>
+        <p class="sidebar__role">SANNI Hamdane<br />cybersécurité &amp; forensics</p>
+      </div>
+
+      <p class="sidebar__index-label">Index du dossier</p>
+      <nav class="side-nav" aria-label="Navigation principale">
+        <a href="#accueil" aria-current="true"><span class="side-nav__num">01</span>Accueil<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="#apropos"><span class="side-nav__num">02</span>À propos<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="#competences"><span class="side-nav__num">03</span>Compétences<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="#certifications"><span class="side-nav__num">04</span>Certifications<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="#projets"><span class="side-nav__num">05</span>Projets<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="blog/"><span class="side-nav__num">06</span>Écrits<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="#contact"><span class="side-nav__num">07</span>Contact<span class="side-nav__dot" aria-hidden="true"></span></a>
+      </nav>
+
+      <div class="sidebar__status">
+        <p class="sidebar__status-label">Statut</p>
+        <p class="sidebar__status-value">Opérationnel</p>
+        <p class="sidebar__status-line"><span class="dot" aria-hidden="true"></span>Ouvert aux missions</p>
+      </div>
+
+      <div class="sidebar__foot">
+        <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp <span aria-hidden="true">↗</span></a>
+        <a href="mailto:sannihamdane15@gmail.com">Email <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+    <div class="scrim" aria-hidden="true"></div>
 
     <main id="contenu">
       <!-- HÉROS -->
-      <section class="hero container" aria-labelledby="titre-hero">
+      <section class="hero container" id="accueil" aria-labelledby="titre-hero">
         <div class="hero__grid">
           <div>
             <p class="eyebrow">
@@ -159,7 +176,7 @@
       <!-- À PROPOS -->
       <section class="section container" id="apropos" aria-labelledby="titre-apropos">
         <div class="section__head">
-          <span class="section__index">01</span>
+          <span class="section__index">02</span>
           <h2 class="section__title" id="titre-apropos">À propos</h2>
           <span class="section__note">Profil</span>
         </div>
@@ -234,7 +251,7 @@
       <!-- COMPÉTENCES -->
       <section class="section container" id="competences" aria-labelledby="titre-competences">
         <div class="section__head">
-          <span class="section__index">02</span>
+          <span class="section__index">03</span>
           <h2 class="section__title" id="titre-competences">Compétences</h2>
           <span class="section__note">Terrain</span>
         </div>
@@ -305,7 +322,7 @@
       <!-- CERTIFICATIONS -->
       <section class="section container" id="certifications" aria-labelledby="titre-certifications">
         <div class="section__head">
-          <span class="section__index">03</span>
+          <span class="section__index">04</span>
           <h2 class="section__title" id="titre-certifications">Certifications</h2>
           <span class="section__note">Vérifiables</span>
         </div>
@@ -373,7 +390,7 @@
       <!-- PROJETS -->
       <section class="section container" id="projets" aria-labelledby="titre-projets">
         <div class="section__head">
-          <span class="section__index">04</span>
+          <span class="section__index">05</span>
           <h2 class="section__title" id="titre-projets">Projets</h2>
           <span class="section__note">Sélection</span>
         </div>
@@ -510,7 +527,7 @@
       <!-- ÉCRITS -->
       <section class="section container" id="ecrits" aria-labelledby="titre-ecrits">
         <div class="section__head">
-          <span class="section__index">05</span>
+          <span class="section__index">06</span>
           <h2 class="section__title" id="titre-ecrits">Écrits</h2>
           <a class="section__note" href="blog/">Tous les articles →</a>
         </div>

@@ -28,27 +28,52 @@
       <div class="backdrop__glow backdrop__glow--b"></div>
     </div>
 
-    <header class="site-header">
-      <div class="container site-header__inner">
-        <a class="brand" href="../index.html" aria-label="H4ckd4ne, accueil">
-          <img src="../assets/img/logo-mark.png" alt="" width="30" height="26" />
-          <span class="brand__text">H4ckd4ne<span>.</span></span>
-        </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-          </svg>
-        </button>
-        <nav class="nav" id="nav" aria-label="Navigation principale">
-          <a href="../index.html#apropos"><span class="nav__num">01</span>À propos</a>
-          <a href="../index.html#competences"><span class="nav__num">02</span>Compétences</a>
-          <a href="../index.html#certifications"><span class="nav__num">03</span>Certifications</a>
-          <a href="../index.html#projets"><span class="nav__num">04</span>Projets</a>
-          <a href="index.html" aria-current="page"><span class="nav__num">05</span>Écrits</a>
-          <a class="nav__cta" href="../index.html#contact">Contact</a>
-        </nav>
-      </div>
+    <header class="topbar">
+      <a class="topbar__brand" href="../index.html" aria-label="H4ckd4ne, accueil">
+        <img src="../assets/img/logo-mark.png" alt="" width="28" height="25" />
+        <span class="topbar__brand-text">H4ckd4ne<span>.</span></span>
+      </a>
+      <button class="topbar__toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
     </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Index du dossier">
+      <div class="sidebar__head">
+        <p class="sidebar__kicker">Dossier n° 0X-H4CKD4NE</p>
+        <a class="sidebar__brand" href="../index.html">
+          <img src="../assets/img/logo-mark.png" alt="" width="34" height="30" />
+          <span class="sidebar__brand-text">H4ckd4ne<span>.</span></span>
+        </a>
+        <p class="sidebar__role">SANNI Hamdane<br />cybersécurité &amp; forensics</p>
+      </div>
+
+      <p class="sidebar__index-label">Index du dossier</p>
+      <nav class="side-nav" aria-label="Navigation principale">
+        <a href="../index.html"><span class="side-nav__num">01</span>Accueil<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="../index.html#apropos"><span class="side-nav__num">02</span>À propos<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="../index.html#competences"><span class="side-nav__num">03</span>Compétences<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="../index.html#certifications"><span class="side-nav__num">04</span>Certifications<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="../index.html#projets"><span class="side-nav__num">05</span>Projets<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="index.html" aria-current="true"><span class="side-nav__num">06</span>Écrits<span class="side-nav__dot" aria-hidden="true"></span></a>
+        <a href="../index.html#contact"><span class="side-nav__num">07</span>Contact<span class="side-nav__dot" aria-hidden="true"></span></a>
+      </nav>
+
+      <div class="sidebar__status">
+        <p class="sidebar__status-label">Statut</p>
+        <p class="sidebar__status-value">Opérationnel</p>
+        <p class="sidebar__status-line"><span class="dot" aria-hidden="true"></span>Ouvert aux missions</p>
+      </div>
+
+      <div class="sidebar__foot">
+        <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp <span aria-hidden="true">↗</span></a>
+        <a href="mailto:sannihamdane15@gmail.com">Email <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+    <div class="scrim" aria-hidden="true"></div>
 
     <main id="contenu">
       <section class="blog-head container">
