@@ -920,6 +920,7 @@ ol {
 .facts__row {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
@@ -942,6 +943,8 @@ ol {
 .facts__val {
   color: var(--ink);
   text-align: right;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 /* ---------- Compétences ---------- */
@@ -1486,6 +1489,61 @@ ol {
   a {
     color: #111;
   }
+}
+
+/* ---------- Parcours ---------- */
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 26px;
+  list-style: none;
+  border-left: 1px solid var(--border);
+  max-width: 820px;
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(34, 230, 207, 0.1);
+}
+
+.timeline__date {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.timeline__title {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.02rem, 0.95rem + 0.35vw, 1.2rem);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.timeline__desc {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.94rem;
+  max-width: 62ch;
 }
 
 /* ---------- Certifications ---------- */
