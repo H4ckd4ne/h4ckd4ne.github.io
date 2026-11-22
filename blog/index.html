@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Écrits — H4ckd4ne</title>
+    <meta
+      name="description"
+      content="Articles de H4ckd4ne : forensics, OSINT, méthode CTF, coulisses des write-ups HackerLab 2026."
+    />
+    <meta name="theme-color" content="#05070c" />
+    <link rel="canonical" href="https://h4ckd4ne.github.io/blog/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Écrits — H4ckd4ne" />
+    <meta property="og:description" content="Forensics, OSINT, méthode CTF et coulisses des write-ups." />
+    <meta property="og:image" content="https://h4ckd4ne.github.io/assets/img/og.jpg" />
+    <link rel="icon" href="../assets/img/favicon.png" sizes="any" />
+    <link rel="preload" href="../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="backdrop" aria-hidden="true">
+      <div class="backdrop__glow backdrop__glow--a"></div>
+      <div class="backdrop__glow backdrop__glow--b"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="../index.html" aria-label="H4ckd4ne, accueil">
+          <img src="../assets/img/logo-mark.png" alt="" width="30" height="26" />
+          <span class="brand__text">H4ckd4ne<span>.</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+        <nav class="nav" id="nav" aria-label="Navigation principale">
+          <a href="../index.html#apropos">À propos</a>
+          <a href="../index.html#competences">Compétences</a>
+          <a href="../index.html#projets">Projets</a>
+          <a href="index.html" aria-current="page">Écrits</a>
+          <a class="nav__cta" href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <section class="blog-head container">
+        <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Journal de bord</p>
+        <h1>Écrits</h1>
+        <p>
+          Des notes prises pendant et après la compétition : comment un artefact parle,
+          comment une piste se vérifie, comment une équipe tient 48 heures. Pas de
+          recettes magiques, juste des chemins et leurs impasses.
+        </p>
+      </section>
+
+      <section class="container section--tight" aria-label="Liste des articles">
+        <div class="posts">
+          <a class="post-row" href="prefetch-compresse.html">
+            <span class="post-row__date">18 nov. 2026</span>
+            <span>
+              <span class="post-row__title">Prefetch compressé : retrouver l'heure d'exécution</span>
+              <span class="post-row__excerpt">
+                Un Prefetch Windows 10 en MAM, une image AD1 et une question simple :
+                quand <code>cipher.exe</code> a-t-il tourné pour la première fois ?
+              </span>
+            </span>
+            <span class="post-row__tag">Forensics</span>
+          </a>
+
+          <a class="post-row" href="osint-pseudo-ville.html">
+            <span class="post-row__date">20 nov. 2026</span>
+            <span>
+              <span class="post-row__title">D'un pseudonyme à une ville</span>
+              <span class="post-row__excerpt">
+                Comment un simple handle suffit à remonter une piste — et pourquoi la
+                vérification compte plus que la collecte.
+              </span>
+            </span>
+            <span class="post-row__tag">OSINT</span>
+          </a>
+
+          <a class="post-row" href="ctf-finale-lecons.html">
+            <span class="post-row__date">22 nov. 2026</span>
+            <span>
+              <span class="post-row__title">Trois leçons d'une finale CTF de 48 heures</span>
+              <span class="post-row__excerpt">
+                Ce qui fait la différence entre une équipe qui score et une équipe qui
+                s'épuise : notes, temps, et relecture.
+              </span>
+            </span>
+            <span class="post-row__tag">Méthode</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> SANNI Hamdane — Cotonou, Bénin.</p>
+        <div class="site-footer__links">
+          <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub</a>
+          <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp</a>
+          <a href="mailto:sannihamdane15@gmail.com">Email</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">Write-ups</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups/blob/main/LICENSE" rel="noopener">CC BY-SA 4.0</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>

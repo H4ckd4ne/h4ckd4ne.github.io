@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prefetch compressé : retrouver l'heure d'exécution — H4ckd4ne</title>
+    <meta
+      name="description"
+      content="Comment retrouver l'heure de première exécution de cipher.exe dans un Prefetch Windows 10 compressé, au sein d'une image AD1."
+    />
+    <meta name="theme-color" content="#05070c" />
+    <link rel="canonical" href="https://h4ckd4ne.github.io/blog/prefetch-compresse.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Prefetch compressé : retrouver l'heure d'exécution" />
+    <meta property="og:description" content="Un Prefetch Windows 10 en MAM, une image AD1, et une question de timeline." />
+    <meta property="og:image" content="https://h4ckd4ne.github.io/assets/img/og.jpg" />
+    <link rel="icon" href="../assets/img/favicon.png" sizes="any" />
+    <link rel="preload" href="../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="backdrop" aria-hidden="true">
+      <div class="backdrop__glow backdrop__glow--a"></div>
+      <div class="backdrop__glow backdrop__glow--b"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="../index.html" aria-label="H4ckd4ne, accueil">
+          <img src="../assets/img/logo-mark.png" alt="" width="30" height="26" />
+          <span class="brand__text">H4ckd4ne<span>.</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+        <nav class="nav" id="nav" aria-label="Navigation principale">
+          <a href="../index.html#apropos">À propos</a>
+          <a href="../index.html#competences">Compétences</a>
+          <a href="../index.html#projets">Projets</a>
+          <a href="index.html" aria-current="page">Écrits</a>
+          <a class="nav__cta" href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <article class="article" aria-labelledby="titre-article">
+        <header class="article__header">
+          <a class="article__back" href="index.html">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Tous les écrits
+          </a>
+          <div class="article__meta">
+            <span>18 novembre 2026</span>
+            <span>6 min de lecture</span>
+            <span>Forensics</span>
+          </div>
+          <h1 id="titre-article">Prefetch compressé : retrouver l'heure d'exécution</h1>
+          <p class="article__lead">
+            Une image disque, un fichier Prefetch, et une question qui paraît simple :
+            à quelle heure <code>cipher.exe</code> a-t-il été lancé pour la première fois ?
+            Sauf que le Prefetch est compressé, et qu'une simple recherche de chaîne ne
+            donne rien.
+          </p>
+        </header>
+
+        <div class="article__body">
+          <h2>Le point de départ</h2>
+          <p>
+            L'énoncé donne une image logique AccessData (<code>.ad1</code>) d'un poste
+            Windows. La question porte sur <code>cipher.exe</code>, l'outil natif de
+            chiffrement de fichiers, et demande l'heure de sa <strong>première
+            exécution</strong>. Dans une investigation, ce genre d'information se lit
+            dans les artefacts d'exécution : Prefetch, Amcache, journaux, MFT.
+          </p>
+          <p>
+            Le fichier qui nous intéresse est un <code>CIPHER.EXE-XXXXXXXX.pf</code>.
+            Un Prefetch classique commence par la signature <code>SCCA</code> et se lit
+            facilement. Ici, mauvaise surprise : la signature n'apparaît pas.
+          </p>
+
+          <h2>Pourquoi le fichier ne ressemble à rien</h2>
+          <p>
+            Depuis Windows 10, les Prefetch peuvent être compressés avec
+            <strong>XPRESS Huffman</strong>, un algorithme de Microsoft souvent désigné
+            par son en-tête : <code>MAM</code>. Le fichier n'est donc plus du texte ni
+            une structure lisible directement, c'est un flux compressé.
+          </p>
+          <p>
+            Réflexe : regarder les premiers octets plutôt que chercher <code>SCCA</code>
+            partout dans l'image. Une recherche de chaîne sur un contenu compressé ne
+            peut pas fonctionner, et c'est exactement le piège.
+          </p>
+
+          <pre><code>$ xxd -l 16 "CIPHER.EXE-134146E6.pf"
+00000000: 4d41 4d04 0000 0000 0000 0000  MAM.........</code></pre>
+
+          <p>
+            <code>4d 41 4d 04</code> : c'est bien du MAM, signature
+            <code>MAM\x04</code>. Le reste du fichier est un flux XPRESS Huffman.
+          </p>
+
+          <h2>Décompresser, puis relire l'en-tête</h2>
+          <p>
+            Deux options selon l'environnement. Sous Windows, <strong>PECmd</strong>
+            (Eric Zimmerman) lit directement les Prefetch compressés. Sous Linux, on
+            décompresse le flux puis on lit l'en-tête <code>SCCA</code> à la main.
+          </p>
+
+          <pre><code># après décodage du flux XPRESS Huffman
+$ xxd -l 8 prefetch.bin
+00000000: 5343 4341 1e00 0000  SCCA....</code></pre>
+
+          <p>
+            <code>SCCA</code> confirme la structure, <code>0x1e</code> donne la version
+            (30, typique de Windows 10). Les huit dates de dernière exécution se trouvent
+            dans l'en-tête, sous forme de <code>FILETIME</code> (100 ns depuis 1601).
+            La première des huit correspond à l'exécution la plus récente ; les suivantes
+            remontent l'historique.
+          </p>
+          <p>
+            Attention à un détail qui change tout : le Prefetch ne conserve que les
+            <strong>huit dernières</strong> exécutions. Si le programme a tourné souvent,
+            la « première » exécution du fichier n'est pas forcément la première de la
+            machine. Il faut croiser avec un autre artefact (Amcache, journaux, MFT)
+            avant de conclure.
+          </p>
+
+          <h2>Ce que j'en retiens</h2>
+          <ul>
+            <li>
+              <strong>Vérifier la signature avant de parser.</strong> Un parser qui
+              attends <code>SCCA</code> échoue silencieusement sur un fichier compressé.
+            </li>
+            <li>
+              <strong>Une recherche de chaîne ne prouve rien.</strong> L'absence de
+              résultat sur un contenu compressé n'est pas une absence de données.
+            </li>
+            <li>
+              <strong>Un artefact seul ne suffit pas.</strong> Le Prefetch limite son
+              historique ; la timeline se construit avec au moins deux sources.
+            </li>
+          </ul>
+
+          <blockquote>
+            La question « quand » est presque toujours une question de recoupement.
+            Le fichier donne une réponse, pas la vérité.
+          </blockquote>
+        </div>
+
+        <footer class="article__footer">
+          <div class="tag-list">
+            <span class="tag">Forensics</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Prefetch</span>
+          </div>
+          <a class="article__back" href="index.html" style="margin: 0">Retour aux écrits</a>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> SANNI Hamdane — Cotonou, Bénin.</p>
+        <div class="site-footer__links">
+          <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub</a>
+          <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp</a>
+          <a href="mailto:sannihamdane15@gmail.com">Email</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">Write-ups</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups/blob/main/LICENSE" rel="noopener">CC BY-SA 4.0</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>

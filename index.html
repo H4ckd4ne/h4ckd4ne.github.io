@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SANNI Hamdane (H4ckd4ne) — cybersécurité, forensics & write-ups</title>
+    <meta
+      name="description"
+      content="Portfolio de SANNI Hamdane (H4ckd4ne) : sécurité offensive, forensics, crypto et OSINT. 3e de la finale HackerLab 2026 avec l'équipe 7H3_D4RK_R007. Write-ups, projets et blog."
+    />
+    <meta name="author" content="H4ckd4ne" />
+    <meta name="theme-color" content="#05070c" />
+    <link rel="canonical" href="https://h4ckd4ne.github.io/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="SANNI Hamdane (H4ckd4ne) — cybersécurité, forensics & write-ups" />
+    <meta
+      property="og:description"
+      content="3e de la finale HackerLab 2026. Write-ups, forensics, crypto, OSINT et motion design."
+    />
+    <meta property="og:url" content="https://h4ckd4ne.github.io/" />
+    <meta property="og:image" content="https://h4ckd4ne.github.io/assets/img/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/img/favicon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/img/favicon.png" />
+    <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/InterDisplay-ExtraBold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <div class="backdrop" aria-hidden="true">
+      <div class="backdrop__glow backdrop__glow--a"></div>
+      <div class="backdrop__glow backdrop__glow--b"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="H4ckd4ne, accueil">
+          <img src="assets/img/logo-mark.png" alt="" width="30" height="26" />
+          <span class="brand__text">H4ckd4ne<span>.</span></span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+          aria-label="Ouvrir le menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <nav class="nav" id="nav" aria-label="Navigation principale">
+          <a href="#apropos">À propos</a>
+          <a href="#competences">Compétences</a>
+          <a href="#projets">Projets</a>
+          <a href="blog/">Écrits</a>
+          <a class="nav__cta" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <!-- HÉROS -->
+      <section class="hero container" aria-labelledby="titre-hero">
+        <div class="hero__grid">
+          <div>
+            <p class="eyebrow">
+              <span class="eyebrow__dot" aria-hidden="true"></span>
+              Cotonou, Bénin · ouvert aux missions
+            </p>
+
+            <h1 id="titre-hero">H4ckd4ne<span class="accent">_</span></h1>
+
+            <p class="hero__name">SANNI Hamdane</p>
+
+            <p class="hero__tagline">Je casse, j'analyse, je raconte.</p>
+
+            <p class="hero__lead">
+              Sécurité offensive et forensique. Avec l'équipe
+              <strong>7H3_D4RK_R007</strong>, nous avons terminé
+              <strong>3<sup>e</sup> de la finale HackerLab 2026</strong> — 14 934 points
+              sur 210 challenges. J'écris mes solves pour que le hacking éthique se
+              lise, et je monte les recaps en motion design.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projets">
+                Voir mes projets
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn btn--ghost" href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">
+                Les write-ups
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="terminal" data-reveal>
+            <div class="terminal__bar">
+              <span class="terminal__dot" aria-hidden="true"></span>
+              <span class="terminal__dot" aria-hidden="true"></span>
+              <span class="terminal__dot" aria-hidden="true"></span>
+              <span class="terminal__title">~/h4ckd4ne</span>
+            </div>
+            <pre class="terminal__body"><code><span class="prompt">$</span> <span class="cmd">whoami</span>
+<span class="out">&gt;</span> <span class="key">H4ckd4ne</span> — offensive security &amp; forensics
+
+<span class="prompt">$</span> <span class="cmd">cat focus.txt</span>
+<span class="out">&gt;</span> web · forensics · crypto · osint · AD
+
+<span class="prompt">$</span> <span class="cmd">ls ~/hackerlab2026</span>
+<span class="out">&gt;</span> 33-writeups  recap-16x9.mp4  recap-9x16.mp4
+
+<span class="prompt">$</span> <span class="cmd">./next</span>
+<span class="out">&gt;</span> stage · mission · collaboration<span class="caret" aria-hidden="true"></span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATISTIQUES -->
+      <section class="container section--tight" aria-label="Chiffres clés">
+        <div class="stats">
+          <div class="stats__item">
+            <div class="stats__value">3<span>e</span></div>
+            <div class="stats__label">Finale HackerLab 2026</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__value">14 934</div>
+            <div class="stats__label">Points marqués</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__value">33</div>
+            <div class="stats__label">Write-ups publiés</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__value">48<span>h</span></div>
+            <div class="stats__label">De compétition</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- À PROPOS -->
+      <section class="section container" id="apropos" aria-labelledby="titre-apropos">
+        <div class="section__head">
+          <span class="section__index">01</span>
+          <h2 class="section__title" id="titre-apropos">À propos</h2>
+          <span class="section__note">Profil</span>
+        </div>
+
+        <div class="about">
+          <div class="about__text" data-reveal>
+            <p>
+              Je suis <strong>SANNI Hamdane</strong>, alias <strong>H4ckd4ne</strong>,
+              passionné par la sécurité offensive et l'analyse forensique. Ce qui m'intéresse, c'est le moment où un système
+              cède : comprendre <span class="hl">pourquoi</span> il casse, puis écrire
+              noir sur blanc <span class="hl">comment</span> le réparer.
+            </p>
+            <p>
+              Pendant la finale du <strong>HackerLab 2026</strong> à Cotonou, 48 heures
+              non-stop sur une nation fictive, 210 challenges et plus de 40 missions.
+              Avec <strong>7H3_D4RK_R007</strong>, on termine sur la troisième marche du
+              podium. Le lendemain, j'ai commencé à transformer mes notes en write-ups
+              lisibles : commandes exactes, impasses, raisonnement.
+            </p>
+            <p>
+              En dehors du shell, je fais du <strong>motion design</strong> : j'ai monté
+              le recap de l'événement en 16:9 et 9:16 avec Remotion et FFmpeg. J'aime
+              les interfaces sobres, les contrastes francs et les choses qui s'expliquent
+              sans jargon.
+            </p>
+          </div>
+
+          <aside class="card" data-reveal aria-label="Informations personnelles">
+            <p class="card__title">Fiche</p>
+            <div class="facts">
+              <div class="facts__row">
+                <span class="facts__key">Nom</span>
+                <span class="facts__val">SANNI Hamdane</span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Base</span>
+                <span class="facts__val">Cotonou, Bénin</span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Langues</span>
+                <span class="facts__val">Français · Anglais · Yoruba</span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Équipe</span>
+                <span class="facts__val">7H3_D4RK_R007</span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Focus</span>
+                <span class="facts__val">Web · Forensics · Crypto</span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">WhatsApp</span>
+                <span class="facts__val"><a href="https://wa.me/2290156563606" rel="noopener">+229 01 56 56 36 06</a></span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Téléphone</span>
+                <span class="facts__val"><a href="tel:+2290160983993">+229 01 60 98 39 93</a></span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Email</span>
+                <span class="facts__val"><a href="mailto:sannihamdane15@gmail.com">sannihamdane15@gmail.com</a></span>
+              </div>
+              <div class="facts__row">
+                <span class="facts__key">Statut</span>
+                <span class="facts__val">Ouvert aux opportunités</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- COMPÉTENCES -->
+      <section class="section container" id="competences" aria-labelledby="titre-competences">
+        <div class="section__head">
+          <span class="section__index">02</span>
+          <h2 class="section__title" id="titre-competences">Compétences</h2>
+          <span class="section__note">Terrain</span>
+        </div>
+
+        <div class="skills">
+          <article class="skill" data-reveal>
+            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+              <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <h3>Web &amp; API</h3>
+            <p>Injections, logique métier, SSRF, authentification, chaînes d'exploitation.</p>
+          </article>
+
+          <article class="skill" data-reveal>
+            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.5" />
+              <path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M8.5 11h5M11 8.5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <h3>Forensics</h3>
+            <p>Disques et images, prefetch, journaux, timelines, corrélation d'artefacts.</p>
+          </article>
+
+          <article class="skill" data-reveal>
+            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5" />
+              <path d="M8.5 10V7.5a3.5 3.5 0 1 1 7 0V10" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="12" cy="15" r="1.4" fill="currentColor" />
+            </svg>
+            <h3>Cryptographie</h3>
+            <p>RSA, AES, protocoles maison, oracles, réutilisation de nonce.</p>
+          </article>
+
+          <article class="skill" data-reveal>
+            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.5" />
+              <path d="m15 15 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M8 10.5h5M10.5 8v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <h3>OSINT</h3>
+            <p>Pseudonymes, géolocalisation, recoupement de sources, vérification.</p>
+          </article>
+
+          <article class="skill" data-reveal>
+            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="5" r="2.2" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="5" cy="18" r="2.2" stroke="currentColor" stroke-width="1.5" />
+              <circle cx="19" cy="18" r="2.2" stroke="currentColor" stroke-width="1.5" />
+              <path d="M12 7.2v4.6M12 11.8 6.4 16M12 11.8l5.6 4.2" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <h3>Active Directory</h3>
+            <p>Énumération, délégations, chemins d'attaque, mouvements latéraux.</p>
+          </article>
+
+          <article class="skill" data-reveal>
+            <svg class="skill__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.5" />
+              <path d="m10 9 5 3-5 3V9Z" fill="currentColor" />
+            </svg>
+            <h3>Motion design</h3>
+            <p>Remotion, FFmpeg, montage, typographie animée, formats sociaux.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJETS -->
+      <section class="section container" id="projets" aria-labelledby="titre-projets">
+        <div class="section__head">
+          <span class="section__index">03</span>
+          <h2 class="section__title" id="titre-projets">Projets</h2>
+          <span class="section__note">Sélection</span>
+        </div>
+
+        <div class="projects">
+          <article class="project project--wide" data-reveal>
+            <div class="project__media project__media--contain">
+              <img
+                src="assets/img/writeups-cover.jpg"
+                alt="Couverture des write-ups : 33 challenges, avec un aperçu du top 3 du classement."
+                width="1600"
+                height="900"
+                decoding="async"
+              />
+            </div>
+            <div class="project__body">
+              <div class="project__meta">
+                <span>Write-ups</span>
+                <span>33 challenges</span>
+                <span>2026</span>
+              </div>
+              <h3>HackerLab 2026 — write-ups</h3>
+              <p>
+                Une sélection de 33 challenges résolus pendant la finale : web, forensics,
+                crypto, OSINT et Active Directory. Chaque write-up suit la même trame :
+                contexte, hypothèses, commandes exactes, impasses, validation.
+              </p>
+              <p>
+                Les flags des challenges hors ligne sont inclus ; ceux des challenges à
+                instance ne sont pas reproduits. Publication sous CC BY-SA 4.0.
+              </p>
+              <a class="project__link" href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">
+                Ouvrir le dépôt
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal>
+            <div class="project__media">
+              <img
+                src="assets/img/recap-poster.jpg"
+                alt="Aperçu du recap vidéo : 3E PLACE, 14 934 points, avec le logo H4ckd4ne."
+                width="1920"
+                height="1080"
+                decoding="async"
+              />
+            </div>
+            <div class="project__body">
+              <div class="project__meta">
+                <span>Motion design</span>
+                <span>58 s</span>
+                <span>16:9 + 9:16</span>
+              </div>
+              <h3>Recap vidéo de l'événement</h3>
+              <p>
+                Un recap de 58 secondes conçu sous Remotion : titre cinétique, compteurs,
+                reconstruction du podium et du scoreboard, sound design. Deux masters
+                rendus, un pour le web et un pour les réseaux.
+              </p>
+              <a class="project__link" href="https://github.com/H4ckd4ne" rel="noopener">
+                Voir sur GitHub
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal>
+            <div class="project__media">
+              <img
+                src="assets/img/portfolio-cover.jpg"
+                alt="Aperçu de la page d'accueil du portfolio : titre H4ckd4ne et terminal."
+                width="1440"
+                height="900"
+                decoding="async"
+              />
+            </div>
+            <div class="project__body">
+              <div class="project__meta">
+                <span>Web</span>
+                <span>HTML / CSS</span>
+                <span>Accessible</span>
+              </div>
+              <h3>Ce portfolio &amp; son blog</h3>
+              <p>
+                Site statique sans dépendance : polices auto-hébergées, contrastes AA,
+                navigation clavier, respect de <code>prefers-reduced-motion</code>.
+                Déployé sur GitHub Pages.
+              </p>
+              <a class="project__link" href="blog/">
+                Lire les articles
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ÉCRITS -->
+      <section class="section container" id="ecrits" aria-labelledby="titre-ecrits">
+        <div class="section__head">
+          <span class="section__index">04</span>
+          <h2 class="section__title" id="titre-ecrits">Écrits</h2>
+          <a class="section__note" href="blog/">Tous les articles →</a>
+        </div>
+
+        <div class="posts">
+          <a class="post-row" href="blog/prefetch-compresse.html">
+            <span class="post-row__date">18 nov. 2026</span>
+            <span>
+              <span class="post-row__title">Prefetch compressé : retrouver l'heure d'exécution</span>
+              <span class="post-row__excerpt">
+                Un Prefetch Windows 10 en MAM, une image AD1 et une question simple :
+                quand <code>cipher.exe</code> a-t-il tourné pour la première fois ?
+              </span>
+            </span>
+            <span class="post-row__tag">Forensics</span>
+          </a>
+
+          <a class="post-row" href="blog/osint-pseudo-ville.html">
+            <span class="post-row__date">20 nov. 2026</span>
+            <span>
+              <span class="post-row__title">D'un pseudonyme à une ville</span>
+              <span class="post-row__excerpt">
+                Comment un simple handle suffit à remonter une piste — et pourquoi la
+                vérification compte plus que la collecte.
+              </span>
+            </span>
+            <span class="post-row__tag">OSINT</span>
+          </a>
+
+          <a class="post-row" href="blog/ctf-finale-lecons.html">
+            <span class="post-row__date">22 nov. 2026</span>
+            <span>
+              <span class="post-row__title">Trois leçons d'une finale CTF de 48 heures</span>
+              <span class="post-row__excerpt">
+                Ce qui fait la différence entre une équipe qui score et une équipe qui
+                s'épuise : notes, temps, et relecture.
+              </span>
+            </span>
+            <span class="post-row__tag">Méthode</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section container" id="contact" aria-labelledby="titre-contact">
+        <div class="contact" data-reveal>
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Disponible</p>
+          <h2 id="titre-contact">On travaille ensemble ?</h2>
+          <p>
+            Stage, mission de pentest, analyse forensique ou simple échange autour du
+            CTF : le plus direct reste WhatsApp ou l'email, et GitHub pour les détails
+            techniques. Je réponds vite.
+          </p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="https://github.com/H4ckd4ne" rel="noopener">
+              github.com/H4ckd4ne
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="btn btn--ghost" href="https://wa.me/2290156563606" rel="noopener">
+              WhatsApp
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.3A8.5 8.5 0 1 1 21 11.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+                <path d="M8.8 8.6c.3-.1.6 0 .8.4l.7 1.2c.1.2.1.5-.1.7l-.4.4c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.4-.4c.2-.2.4-.2.7-.1l1.2.7c.3.2.5.5.4.8-.2 1-.9 1.6-1.9 1.6-2.9 0-6.5-3.6-6.5-6.4 0-1 .5-1.7 1.3-1.9Z" fill="currentColor" />
+              </svg>
+            </a>
+            <a class="btn btn--ghost" href="mailto:sannihamdane15@gmail.com">
+              sannihamdane15@gmail.com
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6" />
+                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">
+              Lire les write-ups
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> SANNI Hamdane — Cotonou, Bénin.</p>
+        <div class="site-footer__links">
+          <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub</a>
+          <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp</a>
+          <a href="mailto:sannihamdane15@gmail.com">Email</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">Write-ups</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups/blob/main/LICENSE" rel="noopener">CC BY-SA 4.0</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

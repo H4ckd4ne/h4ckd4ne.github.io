@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>D'un pseudonyme à une ville — H4ckd4ne</title>
+    <meta
+      name="description"
+      content="Méthode OSINT : partir d'un simple pseudonyme, trier les faux positifs, pivoter sur le contenu et vérifier avant de conclure."
+    />
+    <meta name="theme-color" content="#05070c" />
+    <link rel="canonical" href="https://h4ckd4ne.github.io/blog/osint-pseudo-ville.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="D'un pseudonyme à une ville" />
+    <meta property="og:description" content="Comment un handle suffit à remonter une piste — et pourquoi la vérification compte plus que la collecte." />
+    <meta property="og:image" content="https://h4ckd4ne.github.io/assets/img/og.jpg" />
+    <link rel="icon" href="../assets/img/favicon.png" sizes="any" />
+    <link rel="preload" href="../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="backdrop" aria-hidden="true">
+      <div class="backdrop__glow backdrop__glow--a"></div>
+      <div class="backdrop__glow backdrop__glow--b"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="../index.html" aria-label="H4ckd4ne, accueil">
+          <img src="../assets/img/logo-mark.png" alt="" width="30" height="26" />
+          <span class="brand__text">H4ckd4ne<span>.</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+        <nav class="nav" id="nav" aria-label="Navigation principale">
+          <a href="../index.html#apropos">À propos</a>
+          <a href="../index.html#competences">Compétences</a>
+          <a href="../index.html#projets">Projets</a>
+          <a href="index.html" aria-current="page">Écrits</a>
+          <a class="nav__cta" href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <article class="article" aria-labelledby="titre-article">
+        <header class="article__header">
+          <a class="article__back" href="index.html">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Tous les écrits
+          </a>
+          <div class="article__meta">
+            <span>20 novembre 2026</span>
+            <span>5 min de lecture</span>
+            <span>OSINT</span>
+          </div>
+          <h1 id="titre-article">D'un pseudonyme à une ville</h1>
+          <p class="article__lead">
+            On part d'un handle, <code>paul_morphy_r</code>, et on doit retrouver une
+            ville. Pas de fichier, pas d'indice technique : juste un nom d'emprunt et
+            beaucoup de bruit. Voici la méthode, et surtout les pièges.
+          </p>
+        </header>
+
+        <div class="article__body">
+          <h2>Le pseudonyme n'est pas une identité</h2>
+          <p>
+            Un handle est un point d'entrée, pas une preuve. La première étape consiste
+            à le passer dans un outil de recherche de comptes (Sherlock, Maigret, ou
+            simplement une recherche manuelle), puis à <strong>lister</strong> les
+            résultats sans conclure.
+          </p>
+          <p>
+            Sur un pseudo court ou courant, on obtient vite des dizaines de profils.
+            La majorité n'a aucun rapport. Le travail réel commence là : trier.
+          </p>
+
+          <h2>Trois filtres pour éliminer le bruit</h2>
+          <ul>
+            <li>
+              <strong>Cohérence temporelle.</strong> Un compte créé en 2011 avec trois
+              posts ne raconte pas la même histoire qu'un compte actif pendant la
+              période qui nous intéresse.
+            </li>
+            <li>
+              <strong>Cohérence géographique.</strong> Langue, fuseau horaire, références
+              locales : un profil peut être éliminé s'il contredit le reste du dossier.
+            </li>
+            <li>
+              <strong>Cohérence de contenu.</strong> Un pseudo réutilisé par deux
+              personnes différentes produit souvent des centres d'intérêt incompatibles.
+            </li>
+          </ul>
+          <p>
+            Dans ce challenge, une piste évidente — un dump de téléphone — s'est révélée
+            être une impasse : le pseudo n'y apparaissait nulle part. Continuer à
+            l'explorer aurait coûté du temps pour rien. <strong>Une piste qui ne
+            converge pas doit être abandonnée</strong>, pas forcée.
+          </p>
+
+          <h2>Pivoter sur le contenu, pas sur le nom</h2>
+          <p>
+            Une fois un profil crédible isolé, on ne cherche plus le pseudo : on cherche
+            ce qu'il publie. Une photo, une bio, un lieu mentionné, une langue, un
+            horaire de publication. Chaque élément est un pivot possible.
+          </p>
+          <p>
+            La géolocalisation vient souvent d'un détail visuel : une devanture, un
+            panneau, une ligne de côte, une architecture. Les métadonnées EXIF sont un
+            bonus, pas une stratégie : la plupart des plateformes les suppriment.
+          </p>
+
+          <h2>Vérifier avant de conclure</h2>
+          <p>
+            La règle que je me donne : <strong>deux sources indépendantes</strong> pour
+            un même fait. Une photo peut être réutilisée, une bio peut mentir, un lieu
+            peut être visité. Deux indices qui convergent, oui ; un seul indice
+            spectaculaire, non.
+          </p>
+          <p>
+            Et on écrit le cheminement au fur et à mesure : quel filtre a éliminé quel
+            profil, pourquoi telle piste a été abandonnée. C'est ce qui distingue une
+            enquête d'une intuition.
+          </p>
+
+          <h2>Ce que j'en retiens</h2>
+          <ul>
+            <li>Le pseudo est une entrée, jamais une conclusion.</li>
+            <li>Trier les faux positifs fait partie du travail, pas du temps perdu.</li>
+            <li>Deux sources indépendantes valent mieux qu'une capture d'écran.</li>
+            <li>Documenter les impasses évite de les refaire.</li>
+          </ul>
+
+          <blockquote>
+            En OSINT, la compétence n'est pas de trouver beaucoup d'informations.
+            C'est de savoir lesquelles ignorer.
+          </blockquote>
+        </div>
+
+        <footer class="article__footer">
+          <div class="tag-list">
+            <span class="tag">OSINT</span>
+            <span class="tag">Méthode</span>
+            <span class="tag">Vérification</span>
+          </div>
+          <a class="article__back" href="index.html" style="margin: 0">Retour aux écrits</a>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> SANNI Hamdane — Cotonou, Bénin.</p>
+        <div class="site-footer__links">
+          <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub</a>
+          <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp</a>
+          <a href="mailto:sannihamdane15@gmail.com">Email</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">Write-ups</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups/blob/main/LICENSE" rel="noopener">CC BY-SA 4.0</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>

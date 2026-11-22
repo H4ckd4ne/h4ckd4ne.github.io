@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trois leçons d'une finale CTF de 48 heures — H4ckd4ne</title>
+    <meta
+      name="description"
+      content="Notes, timeboxing et relecture : ce qui fait la différence entre une équipe qui score et une équipe qui s'épuise pendant une finale CTF de 48 heures."
+    />
+    <meta name="theme-color" content="#05070c" />
+    <link rel="canonical" href="https://h4ckd4ne.github.io/blog/ctf-finale-lecons.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Trois leçons d'une finale CTF de 48 heures" />
+    <meta property="og:description" content="Notes, timeboxing et relecture : la méthode avant les outils." />
+    <meta property="og:image" content="https://h4ckd4ne.github.io/assets/img/og.jpg" />
+    <link rel="icon" href="../assets/img/favicon.png" sizes="any" />
+    <link rel="preload" href="../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="backdrop" aria-hidden="true">
+      <div class="backdrop__glow backdrop__glow--a"></div>
+      <div class="backdrop__glow backdrop__glow--b"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="../index.html" aria-label="H4ckd4ne, accueil">
+          <img src="../assets/img/logo-mark.png" alt="" width="30" height="26" />
+          <span class="brand__text">H4ckd4ne<span>.</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+        <nav class="nav" id="nav" aria-label="Navigation principale">
+          <a href="../index.html#apropos">À propos</a>
+          <a href="../index.html#competences">Compétences</a>
+          <a href="../index.html#projets">Projets</a>
+          <a href="index.html" aria-current="page">Écrits</a>
+          <a class="nav__cta" href="../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <article class="article" aria-labelledby="titre-article">
+        <header class="article__header">
+          <a class="article__back" href="index.html">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Tous les écrits
+          </a>
+          <div class="article__meta">
+            <span>22 novembre 2026</span>
+            <span>4 min de lecture</span>
+            <span>Méthode</span>
+          </div>
+          <h1 id="titre-article">Trois leçons d'une finale CTF de 48 heures</h1>
+          <p class="article__lead">
+            Vingt équipes, 210 challenges, deux nuits blanches et un classement qui se
+            joue à quelques centaines de points. Voici ce que je garde de la finale
+            HackerLab 2026 — et ce que je ferais différemment la prochaine fois.
+          </p>
+        </header>
+
+        <div class="article__body">
+          <h2>1. Écrire pendant, pas après</h2>
+          <p>
+            Sur le moment, on croit qu'on se souviendra. On ne se souvient pas. Trois
+            heures après un solve, la commande exacte, le paramètre qui a débloqué la
+            situation et l'hypothèse abandonnée en route ont déjà disparu.
+          </p>
+          <p>
+            Le réflexe à prendre est simple : un fichier par challenge, ouvert avant la
+            première commande. On y colle les sorties brutes, les chemins, les erreurs.
+            Pas de mise en forme, pas de phrases : juste de la matière. La rédaction
+            vient après, à froid.
+          </p>
+          <pre><code>notes/silent-broker.md
+  - cible : 172.28.x.x:8080
+  - endpoint /api/export trouvé dans app.js
+  - payload : &lt;voir bloc ci-dessous&gt;
+  - erreur 500 puis 200 avec le header X-...
+  - PISTE MORTE : jwt none alg (rejeté)</code></pre>
+          <p>
+            C'est aussi ce qui permet de reprendre un challenge à plusieurs : une note
+            claire vaut mieux qu'un message vocal de trois minutes.
+          </p>
+
+          <h2>2. Timeboxer, et savoir abandonner</h2>
+          <p>
+            Le piège d'une finale, c'est le coût irrécupérable. On a passé deux heures
+            sur un challenge, donc on continue « puisqu'on y est ». Sauf que les points
+            restants sont ailleurs.
+          </p>
+          <p>
+            Notre règle : une heure sans progrès mesurable, on passe. On note ce qui a
+            été testé, on laisse le challenge ouvert, et on y revient plus tard avec un
+            regard neuf — souvent après avoir dormi. Sur 48 heures, deux ou trois
+            décisions de ce type valent plus qu'une nuit blanche.
+          </p>
+          <ul>
+            <li>Un objectif par créneau, pas une liste de souhaits.</li>
+            <li>Si un challenge bloque deux personnes, l'une des deux change.</li>
+            <li>Le sommeil fait partie de la stratégie, pas du temps perdu.</li>
+          </ul>
+
+          <h2>3. Relire à froid, comme un rejeu</h2>
+          <p>
+            Un write-up n'est pas un rapport de victoire. C'est une procédure que
+            quelqu'un d'autre doit pouvoir rejouer sans toi. La question à se poser à
+            chaque étape : « est-ce que la commande d'avant est reproductible ? »
+          </p>
+          <p>
+            Concrètement, je relis en vérifiant trois choses : les chemins sont-ils
+            exacts, les prérequis sont-ils indiqués, et les impasses sont-elles
+            assumées ? Une piste écartée documentée vaut souvent plus qu'un solve
+            chanceux.
+          </p>
+          <p>
+            C'est ce travail de relecture qui a donné les 33 write-ups publiés depuis :
+            pas une réécriture de l'exploit, mais la mise en ordre de ce qui a réellement
+            été fait.
+          </p>
+
+          <h2>Ce que j'en retiens</h2>
+          <ul>
+            <li>Prendre des notes pendant l'action, formater après.</li>
+            <li>Timeboxer sans culpabiliser : abandonner est une décision technique.</li>
+            <li>Écrire pour quelqu'un qui n'était pas là.</li>
+            <li>Le classement récompense les points, la méthode récompense la durée.</li>
+          </ul>
+
+          <blockquote>
+            On ne progresse pas parce qu'on a trouvé. On progresse parce qu'on peut
+            expliquer comment.
+          </blockquote>
+        </div>
+
+        <footer class="article__footer">
+          <div class="tag-list">
+            <span class="tag">CTF</span>
+            <span class="tag">Méthode</span>
+            <span class="tag">Équipe</span>
+          </div>
+          <a class="article__back" href="index.html" style="margin: 0">Retour aux écrits</a>
+        </footer>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>© <span data-year>2026</span> SANNI Hamdane — Cotonou, Bénin.</p>
+        <div class="site-footer__links">
+          <a href="https://github.com/H4ckd4ne" rel="noopener">GitHub</a>
+          <a href="https://wa.me/2290156563606" rel="noopener">WhatsApp</a>
+          <a href="mailto:sannihamdane15@gmail.com">Email</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups" rel="noopener">Write-ups</a>
+          <a href="https://github.com/H4ckd4ne/hackerlab2026-writeups/blob/main/LICENSE" rel="noopener">CC BY-SA 4.0</a>
+        </div>
+      </div>
+    </footer>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>
